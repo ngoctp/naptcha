@@ -16,11 +16,7 @@ class NaptchaComponent extends Component {
 	/** Height of the image */
 	public $height = 70;
 	
-	private $timeout = 30;//minutes
-	
-	private $im;
-	public $errorCode;
-	public $errorMessage;
+	public $timeout = 30;//minutes
 	
 	/** Wave configuracion in X and Y axes */
 	public $Yperiod    = 12;
@@ -84,6 +80,8 @@ class NaptchaComponent extends Component {
 			'VeraSans' => array('spacing' => -1, 'minSize' => 20, 'maxSize' => 28, 'font' => 'VeraSansBold.ttf'),
 			);
 	
+	public $errorCode;
+	public $errorMessage;
 	private $errorMap = array(
 			'INVALID' => 'Invalid',
 			'TIMEOUT' => 'Timeout',
@@ -92,7 +90,7 @@ class NaptchaComponent extends Component {
 	
 	/**
 	 * Create a captcha
-	 * @return string
+	 * @return string Id of the captcha
 	 */
 	public function create() {
 		$id = Security::generateAuthKey();
@@ -100,6 +98,10 @@ class NaptchaComponent extends Component {
 		return $id;
 	}
 	
+	/**
+	 * Print the image to browser
+	 * @param string $id
+	 */
 	public function image($id) {
 		$captchaInfo = $this->Session->read('naptcha.' . $id);
 		if (is_array($captchaInfo)) {
@@ -147,7 +149,7 @@ class NaptchaComponent extends Component {
 	public function validate($id, $text) {
 		$captchaInfo = $this->Session->read('naptcha.' . $id);
 		if (!empty($captchaInfo)) {
-			if ($captchaInfo['time'] + $timeout * 60 < time()) {
+			if ($captchaInfo['time'] + $this->timeout * 60 < time()) {
 				$this->errorCode = 'TIMEOUT';
 				$this->errorMessage = $this->errorMap[$this->errorCode];
 				return false;
