@@ -43,7 +43,7 @@ Show renew action image:
 	echo $this->Naptcha->refresh($captchaId, 'CaptchaImage');
 
 ### Validate entered captcha code ###
-Use method validate() in NaptchaComponent to check entered text is correct
+Use method `validate()` in NaptchaComponent to check entered text is correct
 
 	$formData = $this->request->data['YOUR_FORM_MODEL'];// replace by your form model
 	if ($this->Naptcha->validate($formData['captcha_id'], $formData['captcha_text'])) {
