@@ -57,4 +57,4 @@ Use method `validate()` in NaptchaComponent to check entered text is correct
 
 Donation
 -------
-Thank you for using and donation <https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=A2ELKNXDFC4R6&lc=VN&item_name=phuongngoc&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted>
+Thank you for using and donation <http://goo.gl/gv8hm1>
