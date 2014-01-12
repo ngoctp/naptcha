@@ -83,9 +83,9 @@ class NaptchaComponent extends Component {
 	public $errorCode;
 	public $errorMessage;
 	private $errorMap = array(
-			'INVALID' => 'Invalid captcha ID',
-			'TIMEOUT' => 'Captcha ID was timeout',
-			'NOTMATCHED' => 'Entered text is not matched',
+			'INVALID' => 'Invalid',
+			'TIMEOUT' => 'Timeout',
+			'NOTMATCHED' => 'Not matched',
 			);
 	
 	/**
@@ -142,7 +142,6 @@ class NaptchaComponent extends Component {
 	
 	/**
 	 * Validate the entered text
-	 * If return false, get errorCode and errorMessage properties to see error details
 	 * @param string $id
 	 * @param string $text
 	 * @return boolean
